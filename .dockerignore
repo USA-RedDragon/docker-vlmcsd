@@ -1,0 +1,5 @@
+.git/
+.dockerignore
+Dockerfile
+README
+README.openssl
