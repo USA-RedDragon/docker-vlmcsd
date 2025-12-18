@@ -1,4 +1,4 @@
-FROM alpine:3.23.0 AS builder
+FROM alpine:3.23.2@sha256:c93cec902b6a0c6ef3b5ab7c65ea36beada05ec1205664a4131d9e8ea13e405d AS builder
 
 WORKDIR /build
 
@@ -9,7 +9,7 @@ COPY . ./
 ARG VLMCSD_VERSION=${DOCKER_TAG}
 RUN make vlmcsd
 
-FROM alpine:3.23.0
+FROM alpine:3.23.2@sha256:c93cec902b6a0c6ef3b5ab7c65ea36beada05ec1205664a4131d9e8ea13e405d
 
 COPY --from=builder /build/bin/vlmcsd /bin/vlmcsd
 
